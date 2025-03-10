@@ -1,29 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <title>Suplement</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <meta name="description" content="The Suplement combo!" />
-    <meta property="og:site_name" content="..." />
-    <meta property="og:title" content="Suplement" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="..." />
-    <meta property="og:image" content="..." />
-    <meta property="og:image:secure_url" content="..." />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="628" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Suplement" />
-    <meta name="twitter:description" content="The Suplement combo!" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="assets/favicon_bolt_green_square_bac0116f6d0f_b4ebc25d-9c58-4f5b-b4a3-38d69133d3fc.png?crop=center&amp;height=32&amp;v=1720736506&amp;width=32"
-    />
+    <title>Suplement Refresh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Experience the new wave of wellness with our Suplement combo!" />
     <style>
       body {
         margin: 0;
@@ -31,47 +12,80 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: #E8F8F5; /* A fresh mint background for a soothing feel */
+        font-family: 'Arial', sans-serif;
       }
 
       main {
         flex: 1;
         padding: 20px;
+        text-align: center;
+        margin-bottom: 100%;
       }
 
-      .image-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px; /* Espaçamento entre as imagens */
-      }
-
-      .image-container img {
-        width: 100%;
-        max-width: 500px; /* Limite para telas maiores */
-        height: auto;
-        margin: auto;
-        border-radius: 10px; /* Bordas arredondadas para visual mais limpo */
-      }
-
-      .pulsating-image {
-        animation: pulsate 1.5s ease-in-out infinite;
+      .btn {
+        background-color: #34A7C1; /* Soft teal for a refreshing button color */
+        border: none;
+        padding: 12px 40px;
+        font-size: 25px;
+        color: #ffffff;
         cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        animation: pulse 1.5s infinite;
       }
 
-      @keyframes pulsate {
+      @keyframes pulse {
         0% {
           transform: scale(1);
         }
         50% {
-          transform: scale(1.05);
+          transform: scale(1.1);
         }
         100% {
           transform: scale(1);
         }
       }
+      .btn:hover {
+        background-color: #29A3A7; /* A darker shade of teal for hover */
+      }
 
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .image-container img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      #timer {
+        margin-top: 15px;
+        font-size: 18px;
+        color: #32AAB5; /* Matching the button color for consistency */
+        font-weight: bold;
+      }
+
+      .confirmation-text {
+        font-size: 22px;
+        color: #34A7C1; /* Slightly lighter teal for emphasis */
+        font-weight: bold;
+      }
+
+      .confirmation-subtext {
+        font-size: 18px;
+        color: #000000;
+        margin-bottom: 10px;
+      }
       footer {
-        background-color: black;
+        background-color: #263238; /* A deep navy for a professional footer */
         color: white;
         padding: 20px;
         text-align: center;
@@ -81,7 +95,7 @@
       .footer-links {
         display: flex;
         flex-direction: column;
-        gap: 5px; /* Espaçamento entre links */
+        gap: 5px;
       }
 
       .footer-links a {
@@ -98,33 +112,58 @@
         margin-top: 10px;
       }
     </style>
-    <script>
-      function transferParamsAndOpen(url) {
-        const currentParams = window.location.search;
-        const finalUrl = url + currentParams;
-        window.open(finalUrl, "_blank");
-      }
-    </script>
-    <script src="assets/js/sessid_script.js"></script>
   </head>
-  <body onclick="transferParamsAndOpen('https://dexmo88.com/l8/')">
+  <body>
     <main>
       <div class="image-container" style="margin-top: 60px">
-        <img
-          src="assets/imagenova.png"
-          alt="First Image"
-          onclick="transferParamsAndOpen('https://dexmo88.com/l8/')"
-        />
-        <img
-          src="assets/image2.png"
-          alt="Second Image"
-          class="pulsating-image"
-          onclick="transferParamsAndOpen('https://dexmo88.com/l8/')"
-        />
+        <img src="assets/imagenova.png" alt="First Image" />
+        <a href="https://twr.theman-health.com/ynjuj2e258/"
+          ><button class="btn" id="proceedButton">WATCH NOW</button></a
+        >
+        <span id="timer">Access in 15 seconds</span>
       </div>
     </main>
-    <footer>
-      <div>Copyright 2024 - Men's Health©</div>
+    <script>
+      // Timer Countdown
+      let timeLeft = 15;
+      const timerElement = document.getElementById("timer");
+
+      function updateTimer() {
+        if (timeLeft > 0) {
+          timeLeft--;
+          timerElement.textContent = `Access in ${timeLeft} seconds`;
+        } else {
+          clearInterval(timerInterval);
+          timerElement.textContent = "Access expiring...";
+        }
+      }
+
+      let timerInterval = setInterval(updateTimer, 1000);
+    </script>
+
+    <script>
+        // Attach URL parameters to the redirect link
+        document.addEventListener('DOMContentLoaded', function() {
+            var proceedButton = document.querySelector('a');
+            var currentUrlParams = new URLSearchParams(window.location.search);
+
+            var newHref = proceedButton.href;
+            if (!newHref.includes('?')) {
+                newHref += '?';
+            } else {
+                newHref += '&';
+            }
+
+            currentUrlParams.forEach(function(value, key) {
+                newHref += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`;
+            });
+            newHref = newHref.slice(0, -1); // Remove the last '&'
+            proceedButton.href = newHref;
+        });
+    </script>
+  </body>
+  <footer>
+      <div>Copyright 2024 - The Man Health ©</div>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms & Conditions</a>
@@ -137,5 +176,4 @@
         is a trademark of YOUTUBE, Inc.
       </div>
     </footer>
-  </body>
 </html>
